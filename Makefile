@@ -16,7 +16,7 @@ srcdir	?= $(prefix)/src
 
 machinetype = $(shell uname -m | \
     sed -e 's/i.86/i386/' -e 's/mips.*/mips/' -e 's/ppc.*/powerpc/')
-ifneq ($(filter x86_64 i386 ia64 mips powerpc,$(machinetype)),)
+ifneq ($(strip $(filter x86_64 i386 ia64 mips powerpc,$(machinetype))),)
 NUMA 	:= 1
 endif
 
